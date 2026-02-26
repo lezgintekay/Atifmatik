@@ -1,24 +1,28 @@
 document.getElementById('copyBtn').addEventListener('click', async () => {
     const status = document.getElementById('status');
+    // Select elementinden seçilen değeri alıyoruz
+    const selectedStyle = document.getElementById('format').value; 
+    
     status.textContent = "DOI Aranıyor...";
 
     // Aktif sekmeyi bul
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-    // Content script'e "DOI bul" mesajı gönder
+    
     chrome.tabs.sendMessage(tab.id, { action: "getDOI" }, async (response) => {
         if (response && response.doi) {
-            status.textContent = "Referans alınıyor...";
+            status.textContent = `${selectedStyle.toUpperCase()} formatında alınıyor...`;
 
             try {
-                // Crossref API kullanarak APA formatında atıf çek
                 const res = await fetch(`https://doi.org/${response.doi}`, {
-                    headers: { 'Accept': 'text/x-bibliography; style=apa' }
+                    headers: { 
+                        // Buradaki 'apa' yerine kullanıcının seçtiği 'selectedStyle' değişkenini koyduk
+                        'Accept': `text/x-bibliography; style=${selectedStyle}` 
+                    }
                 });
 
                 const citation = await res.text();
 
-                // Copyboard panosuna kopyalama işlemi 
                 await navigator.clipboard.writeText(citation);
                 status.textContent = "Kopyalandı! (CTRL+V yapabilirsin)";
             } catch (err) {
@@ -29,4 +33,3 @@ document.getElementById('copyBtn').addEventListener('click', async () => {
         }
     });
 });
-

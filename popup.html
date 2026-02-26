@@ -1,36 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 
 <head>
     <meta charset="utf-8">
     <style>
         body {
-            width: 220px;
-            font-family: sans-serif;
+            width: 280px;
             padding: 15px;
-            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+        }
+
+        h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        .style-selector {
+            margin: 15px 0;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #bdc3c7;
+            background-color: white;
+            cursor: pointer;
         }
 
         button {
-            background-color: #27ae60;
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
             color: white;
             border: none;
-            padding: 12px;
-            width: 100%;
-            cursor: pointer;
             border-radius: 5px;
+            cursor: pointer;
             font-weight: bold;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #219150;
+            background-color: #2980b9;
         }
 
         #status {
             margin-top: 12px;
-            font-size: 13px;
-            color: #34495e;
-            min-height: 20px;
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            text-align: center;
+            min-height: 1.2em;
         }
     </style>
 </head>
@@ -40,8 +63,18 @@
     <button id="copyBtn">Atıfı Kopyala</button>
     <div id="status"></div>
     <script src="popup.js"></script>
+
+
+    <div class="style-selector">
+        <label for="format">Atıf Stili:</label>
+        <select id="format">
+            <option value="apa">APA (7. Baskı)</option>
+            <option value="ieee">IEEE</option>
+            <option value="mla">MLA (9. Baskı)</option>
+            <option value="vancouver">Vancouver</option>
+        </select>
+    </div>
+
 </body>
 
 </html>
-
-
