@@ -4,7 +4,6 @@
     "version": "1.0.1",
     "description": "DOI numarasını bulur ve APA atıfını kopyalar.",
     "permissions": [
-        "storage",
         "activeTab",
         "clipboardWrite"
     ],
