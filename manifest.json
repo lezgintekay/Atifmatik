@@ -1,12 +1,11 @@
 {
     "manifest_version": 3,
     "name": "Atıfmatik",
-    "version": "1.0",
+    "version": "1.0.1",
     "description": "DOI numarasını bulur ve APA atıfını kopyalar.",
     "permissions": [
         "storage",
         "activeTab",
-        "scripting",
         "clipboardWrite"
     ],
     "icons": {
