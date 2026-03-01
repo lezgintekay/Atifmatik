@@ -16,8 +16,12 @@ Atıfmatik, akademik araştırma sürecini hızlandırmak için geliştirilmiş,
 
 Eklenti henüz mağazalarda yer almadığı için şu adımları izleyerek kurabilirsiniz:
 
-    Bu repoyu bilgisayarınıza indirin veya klonlayın: git clone https://github.com/lezgintekay/Atifmatik.git
-
+    Bu repoyu bilgisayarınıza indirin veya klonlayın: git clone https://github.com/lezgintekay/Atifmatik.git veya
+    reponun en güncel sürümü için branchleri kontrol edin. 
+    git clone -b ozellik/v2-stiller --single-branch https://github.com/lezgintekay/Atifmatik.git
+    (ozellik/v2-stiller branch'ini kurarsanız atıfları kopyalarken kullanabileceğiniz 9 ayrı stile ulaşabilirsiniz)
+    (main branch'te şu anda yalnızca APA 7 stili kullanımda.)
+  
     Tarayıcınızda (Chrome, Edge, Brave vb.) chrome://extensions/ adresine gidin.
 
     Sağ üst köşedeki Geliştirici Modu'nu aktif hale getirin.
