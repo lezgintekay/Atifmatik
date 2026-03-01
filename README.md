@@ -12,7 +12,7 @@ Atıfmatik, akademik araştırma sürecini hızlandırmak için geliştirilmiş,
 
     Geniş Uyumluluk: DergiPark'tan uluslararası veri tabanlarına kadar geniş bir yelpazede çalışır.
 
-🛠️ Kurulum (Geliştirici Modu)
+🛠️ Kurulum 
 
 Eklenti henüz mağazalarda yer almadığı için şu adımları izleyerek kurabilirsiniz:
 
