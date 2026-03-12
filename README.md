@@ -2,22 +2,27 @@
 
 Atıfmatik, akademik araştırma sürecini hızlandırmak için geliştirilmiş, açık kaynaklı bir web tarayıcısı eklentisidir. Web sayfalarındaki (DergiPark, Google Akademik vb.) makaleleri otomatik olarak tarayarak DOI numaralarını tespit eder ve tek tıkla APA formatında akademik atıfını oluşturup panonuza kopyalar.
 
-✨ Özellikler
+✨ Özellikler(V1.0.1)
 
-    Akıllı DOI Avcısı: Sayfa metni, meta etiketleri ve bağlantılar (linkler) üzerinden DOI numarasını anında bulur.
+    Sayfa metni, meta etiketleri ve bağlantılar (linkler) üzerinden DOI numarasını anında bulur.
 
-    Standart APA Atıfı: Crossref API entegrasyonu sayesinde makale künyesini (yazar, yıl, başlık, dergi) hatasız bir şekilde akademik formatta sunar.
+    Crossref API entegrasyonu sayesinde makale künyesini (yazar, yıl, başlık, dergi) hatasız bir şekilde 
+    akademik formatta sunar.
 
-    Hızlı Kopyalama: CTRL+C ile uğraşmanıza gerek kalmadan, tek butona basarak referansı panonuza alır.
+    Tek butona basarak referansı panonuza alır.
 
-    Geniş Uyumluluk: DergiPark'tan uluslararası veri tabanlarına kadar geniş bir yelpazede çalışır.
+    Uluslararası veri tabanlarına kadar geniş bir yelpazede çalışır.
 
-🛠️ Kurulum (Geliştirici Modu)
+🛠️ Kurulum 
 
 Eklenti henüz mağazalarda yer almadığı için şu adımları izleyerek kurabilirsiniz:
 
-    Bu repoyu bilgisayarınıza indirin veya klonlayın: git clone https://github.com/lezgintekay/Atifmatik.git
-
+    Bu repoyu bilgisayarınıza indirin veya klonlayın: git clone https://github.com/lezgintekay/Atifmatik.git veya
+    reponun en henüz geliştirilmekte olan daha güncel sürümleri için branchleri kontrol edin. 
+    git clone -b ozellik/v2-stiller --single-branch https://github.com/lezgintekay/Atifmatik.git
+    (ozellik/v2-stiller branch'ini kurarsanız atıfları kopyalarken kullanabileceğiniz 9 ayrı stile ulaşabilirsiniz)
+    (main branch'te şu anda yalnızca APA 7 stili kullanımda.)
+  
     Tarayıcınızda (Chrome, Edge, Brave vb.) chrome://extensions/ adresine gidin.
 
     Sağ üst köşedeki Geliştirici Modu'nu aktif hale getirin.
