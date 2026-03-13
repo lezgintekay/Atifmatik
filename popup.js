@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. Kullanıcı menüden stili her değiştirdiğinde seçimi hafızaya kaydet
+    // 2. Kullanıcı menüden stili her değiştirdiğinde seçimi hafızaya kaydediyoruz
     if (formatSelect) {
         formatSelect.addEventListener("change", (e) => {
             chrome.storage.local.set({ savedStyle: e.target.value });
@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             // Panoya kopyalıyoruz
                             await navigator.clipboard.writeText(citation);
                             status.textContent = "Kopyalandı! (CTRL+V yapabilirsin)";
+                            // Geçmişe ekliyoruz
                             addToHistory({
                                 doi: response.doi,
                                 style: selectedStyle,
