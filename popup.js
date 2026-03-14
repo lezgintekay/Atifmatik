@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             formatSelect.value = result.savedStyle;
         if (result.citationHistory) renderHistory(result.citationHistory);
     });
+    
     function renderHistory(history) {
         if (!historyList) return; // Eğer historyList elementi yoksa çık
 
@@ -17,8 +18,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
         history.forEach((item) => {
             const li = document.createElement("li");
-            li.textContent = `${item.doi} - ${item.style}`;
+           const displayTitle = item.title 
+            ? (item.title.length > 45 ? item.title.substring(0, 42) + "..." : item.title)
+            : item.doi;
+            //  li.textContent = `${item.doi} - ${item.style}`;
+            //    li.style.cursor = "pointer";
+            // li.onclick = () => {
+            //     navigator.clipboard.writeText(item.citation);
+            //     status.textContent = "Geçmiş atıf kopyalandı!";
+            // };
+
+            li.innerHTML = `
+            <div style="font-weight: bold; font-size: 11px;">${displayTitle}</div>
+            <div style="font-size: 10px; color: #666;">${item.style.toUpperCase()} - ${item.doi.substring(0, 15)}...</div>
+        `;
+            li.style.padding = "8px"; 
+            li.style.borderBottom = "1px solid #eee";
             li.style.cursor = "pointer";
+            li.title = item.title; 
             li.onclick = () => {
                 navigator.clipboard.writeText(item.citation);
                 status.textContent = "Geçmiş atıf kopyalandı!";
@@ -34,7 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
             history = [newCitation, ...history].filter(
                 (c) => c.doi !== newCitation.doi,
             ); // Aynı DOI'li atıfları temizle
+
+            history.unshift(newCitation); // Yeni atıfı başa ekle
+
             if (history.length > 5) history.pop(); // Geçmişi 5 ile sınırla
+            console.log("geçmişe ekleniyor", newCitation); // test log
             chrome.storage.local.set({ citationHistory: history }, () => {
                 renderHistory(history);
             });
@@ -77,6 +98,10 @@ document.addEventListener("DOMContentLoaded", () => {
                             });
 
                             const citation = await res.text();
+                            const resMeta = await fetch('https://api.crossref.org/works/' + response.doi);
+                            const metaData = await resMeta.json();
+                            const title = metaData.message.title ? metaData.message.title[0] : "Başlık bulunamadı";
+                            console.log("meta data", metaData); // test log
 
                             // Panoya kopyalıyoruz
                             await navigator.clipboard.writeText(citation);
