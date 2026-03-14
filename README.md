@@ -29,10 +29,8 @@ Atıfmatik v2.0, kullanıcı deneyimini (UX) ön plana çıkaran yeni özellikle
 
 ---
 
-## 📸 Ekran Görüntüleri
-
 <p align="center">
-  <img src="https://i.hizliresim.com/rlyxo8v.png" width="440" alt="Atıfmatik v2.0 Tanıtım">
+  <img src="https://i.hizliresim.com/rlyxo8v.png" width="800" alt="Atıfmatik v2.0 Tanıtım">
 </p>
 
 ---
