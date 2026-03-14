@@ -1,44 +1,38 @@
-🎓 Atıfmatik
+# 🎓 Atıfmatik v2.0
 
-Atıfmatik, akademik araştırma sürecini hızlandırmak için geliştirilmiş, açık kaynaklı bir web tarayıcısı eklentisidir. Web sayfalarındaki (DergiPark, Google Akademik vb.) makaleleri otomatik olarak tarayarak DOI numaralarını tespit eder ve tek tıkla APA formatında akademik atıfını oluşturup panonuza kopyalar.
+![Chrome Web Store](https://img.shields.io/chrome-web-store/v/mkfdkklboeoemmlkkkflcknjnbmbjkne?style=for-the-badge)
+![License](https://img.shields.io/github/license/lezgintekay/Atifmatik?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Published-success?style=for-the-badge)
 
-✨ Özellikler(V1.0.1)
+**Atıfmatik**, akademik makalelerden saniyeler içinde doğru formatta atıf kopyalamayı sağlayan, tarayıcı tabanlı bir verimlilik aracıdır. Karmaşık DOI numaralarını saniyeler içinde anlamlı ve kullanıma hazır akademik atıflara dönüştürür.
 
-    Sayfa metni, meta etiketleri ve bağlantılar (linkler) üzerinden DOI numarasını anında bulur.
+🚀 **[Chrome Web Store'dan İndir](https://chromewebstore.google.com/detail/mkfdkklboeoemmlkkkflcknjnbmbjkne)**
 
-    Crossref API entegrasyonu sayesinde makale künyesini (yazar, yıl, başlık, dergi) hatasız bir şekilde 
-    akademik formatta sunar.
+---
 
-    Tek butona basarak referansı panonuza alır.
+## ✨ v2.0 ile Gelen Yenilikler
 
-    Uluslararası veri tabanlarına kadar geniş bir yelpazede çalışır.
+Atıfmatik v2.0, kullanıcı deneyimini (UX) ön plana çıkaran yeni özelliklerle tamamen yenilendi:
 
-🛠️ Kurulum 
+* 💾 **Akıllı Hafıza:** Seçtiğiniz atıf stilini hatırlar, eklentiyi her açtığınızda stil seçme zahmetinden kurtarır.
+* 📜 **Atıf Geçmişi:** Son kopyaladığınız 5 atıfı makale başlıklarıyla birlikte yerel hafızada saklar. Tek tıkla eski atıflarınıza erişip tekrar kopyalayabilirsiniz.
+* 🎨 **Modern Arayüz:** Daha temiz, hızlı ve etkileşimli bir arayüz tasarımı geliştirildi.
 
-Eklenti henüz mağazalarda yer almadığı için şu adımları izleyerek kurabilirsiniz:
+---
 
-    Bu repoyu bilgisayarınıza indirin veya klonlayın: git clone https://github.com/lezgintekay/Atifmatik.git veya
-    reponun en henüz geliştirilmekte olan daha güncel sürümleri için branchleri kontrol edin. 
-    git clone -b ozellik/v2-stiller --single-branch https://github.com/lezgintekay/Atifmatik.git
-    (ozellik/v2-stiller branch'ini kurarsanız atıfları kopyalarken kullanabileceğiniz 9 ayrı stile ulaşabilirsiniz)
-    (main branch'te şu anda yalnızca APA 7 stili kullanımda.)
-  
-    Tarayıcınızda (Chrome, Edge, Brave vb.) chrome://extensions/ adresine gidin.
+## 🛠️ Teknik Özellikler
 
-    Sağ üst köşedeki Geliştirici Modu'nu aktif hale getirin.
 
-    Paketlenmemiş öğe yükle butonuna tıklayın ve bu proje klasörünü seçin.
+* **Depolama:** `chrome.storage.local` ile oturumlar arası veri yönetimi.
+* **API:** Crossref Rest API & DOI Content Negotiation.
+* **İzinler:** Minimum izin prensibi (`activeTab`, `storage`).
 
-🚀 Yol Haritası (Versiyon 2.0 Planları)
+---
 
-Gelecek sürümlerde eklenmesi planlanan özellikler:
+## 📸 Ekran Görüntüleri
 
-    Atıf Stili Seçici: IEEE, MLA, Harvard ve Chicago stilleri arasında geçiş yapabilme.
+<p align="center">
+  <img src="https://i.hizliresim.com/rlyxo8v.png" width="440" alt="Atıfmatik v2.0 Tanıtım">
+</p>
 
-    BibTeX Desteği: LaTeX kullanıcıları için referansları .bib formatında dışa aktarma.
-
-    Atıf Geçmişi: Son kopyalanan 5 makaleye hızlı erişim paneli.
-
-📄 Lisans
-
-Bu proje MIT Lisansı ile korunmaktadır. Açık kaynak ruhuna uygun olarak geliştirilmeye ve katkıya açıktır.
+---
