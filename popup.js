@@ -109,6 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             // Geçmişe ekliyoruz
                             addToHistory({
                                 doi: response.doi,
+                                title: title,
                                 style: selectedStyle,
                                 citation: citation,
                             });
