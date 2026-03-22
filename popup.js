@@ -1,8 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
     const formatSelect = document.getElementById("format");
-    const copyBtn = document.getElementById("copyBtn");
+
+    //const copyBtn = document.getElementById("copyBtn");
+    document.getElementById("copyBtn").textContent = chrome.i18n.getMessage("copyButton");
+    
     const status = document.getElementById("status");
     const historyList = document.getElementById("historyList");
+
+    document.getElementById("extNameHeader").textContent = chrome.i18n.getMessage("extName");
+    document.getElementById("styleLabel").textContent = chrome.i18n.getMessage("styleLabel");
+    document.getElementById("historyHeader").textContent = chrome.i18n.getMessage("historyHeader");
+
+
+
+    if (copyBtn) copyBtn.textContent = chrome.i18n.getMessage("copyButton");
+    const styleLabel = document.querySelector('label[for="format"]');
+    if (styleLabel) styleLabel.textContent = chrome.i18n.getMessage("styleLabel");
+    const historyHeader = document.querySelector('.history-connector h4'); 
+    if (historyHeader) historyHeader.textContent = chrome.i18n.getMessage("historyHeader");
 
     // 1. Eklenti her açıldığında hafızada kayıtlı bir stil var mı diye kontrol et / geçmişi getir
     chrome.storage.local.get(["savedStyle", "citationHistory"], (result) => {
@@ -18,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         history.forEach((item) => {
             const li = document.createElement("li");
-           const displayTitle = item.title 
+            const displayTitle = item.title 
             ? (item.title.length > 45 ? item.title.substring(0, 42) + "..." : item.title)
             : item.doi;
             //  li.textContent = `${item.doi} - ${item.style}`;
@@ -38,7 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
             li.title = item.title; 
             li.onclick = () => {
                 navigator.clipboard.writeText(item.citation);
-                status.textContent = "Geçmiş atıf kopyalandı!";
+                //status.textContent = "Geçmiş atıf kopyalandı!";
+                status.textContent = chrome.i18n.getMessage("historyCopied");
             };
             historyList.appendChild(li);
         });
@@ -73,7 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (copyBtn) {
         copyBtn.addEventListener("click", async () => {
             const selectedStyle = formatSelect.value;
-            status.textContent = "DOI Aranıyor...";
+            //status.textContent = "DOI Aranıyor...";
+                status.textContent = chrome.i18n.getMessage("doiSearching");
 
             // Aktif sekme bilgilerini alıyoruz
             const [tab] = await chrome.tabs.query({
@@ -87,8 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 { action: "getDOI" },
                 async (response) => {
                     if (response && response.doi) {
-                        status.textContent = `${selectedStyle.toUpperCase()} formatında alınıyor...`;
-
+                        //status.textContent = `${selectedStyle.toUpperCase()} formatında alınıyor...`;
+status.textContent = `${selectedStyle.toUpperCase()} ${chrome.i18n.getMessage("fetchingFormat")}`;
                         try {
                             // Seçilen stile göre atıfı Crossref/DOI üzerinden çekiyoruz
                             const res = await fetch(`https://doi.org/${response.doi}`, {
@@ -100,12 +117,18 @@ document.addEventListener("DOMContentLoaded", () => {
                             const citation = await res.text();
                             const resMeta = await fetch('https://api.crossref.org/works/' + response.doi);
                             const metaData = await resMeta.json();
-                            const title = metaData.message.title ? metaData.message.title[0] : "Başlık bulunamadı";
+                            //const title = metaData.message.title ? metaData.message.title[0] : "Başlık bulunamadı";
+                            const title = metaData.message.title ? metaData.message.title[0] : chrome.i18n.getMessage("noTitle");
                             console.log("meta data", metaData); // test log
 
                             // Panoya kopyalıyoruz
                             await navigator.clipboard.writeText(citation);
-                            status.textContent = "Kopyalandı! (CTRL+V yapabilirsin)";
+                            
+                            
+                            //status.textContent = "Kopyalandı! (CTRL+V yapabilirsin)";
+                            status.textContent = chrome.i18n.getMessage("copySuccess");
+
+
                             // Geçmişe ekliyoruz
                             addToHistory({
                                 doi: response.doi,
@@ -114,10 +137,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                 citation: citation,
                             });
                         } catch (err) {
-                            status.textContent = "Hata: Atıf çekilemedi.";
+                            //status.textContent = "Hata: Atıf çekilemedi.";
+                            status.textContent = chrome.i18n.getMessage("errorFetching");
                         }
                     } else {
-                        status.textContent = "DOI bulunamadı!";
+                        //status.textContent = "DOI bulunamadı!";
+                        status.textContent = chrome.i18n.getMessage("doiNotFound");
                     }
                 },
             );

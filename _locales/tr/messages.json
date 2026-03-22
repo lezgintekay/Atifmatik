@@ -1,0 +1,42 @@
+{
+    "extName": {
+        "message": "Atıfmatik"
+    },
+    "extDescription": {
+        "message": "DOI numarasını bulur ve atıfı anında kopyalar."
+    },
+    "copyBtn": {
+        "message": "Atıfı Kopyala"
+    },
+    "doiSearching": {
+        "message": "DOI Aranıyor..."
+    },
+    "doiNotFound": {
+        "message": "DOI bulunamadı!"
+    },
+    "copySuccess": {
+        "message": "Kopyalandı! (CTRL+V yapabilirsin)"
+    },
+    "historyHeader": {
+        "message": "Son Atıflar"
+    },
+    "historyCopied": {
+        "message": "Geçmiş atıf kopyalandı!"
+    },
+    "styleLabel": {
+        "message": "Atıf Stili:"
+    }, 
+    "noTitle": { 
+        "message": 
+        "Başlık bulunamadı" 
+    },
+    "fetchingFormat": {
+        "message": 
+        " formatında alınıyor..."
+    }, 
+    "errorFetching" : {
+        "message": 
+        "Hata: Atıf alınırken hata oluştu."
+    }
+}
+

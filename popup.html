@@ -59,14 +59,13 @@
 </head>
 
 <body>
-    <h3>Atıfmatik</h3>
-    <button id="copyBtn">Atıfı Kopyala</button>
-    <div id="status"></div>
-    <script src="popup.js"></script>
+    <h3 id="extNameHeader">Atıfmatik</h3>
+    
+    
 
 
     <div class="style-selector">
-        <label for="format">Atıf Stili:</label>
+        <label for="format" id="styleLabel">Atıf Stili:</label>
         <select id="format">
             <option value="apa">APA (7. Baskı)</option>
             <option value="ieee">IEEE</option>
@@ -79,10 +78,15 @@
             <option value="elsevier-with-titles">Elsevier</option>
         </select>
     </div>
+    <button id="copyBtn">Atıfı Kopyala</button>
+    <div id="status"></div>
+
     <div class="history-container">
-        <h4>Son Atıflar</h4>
+        <h4 id="historyHeader ">Son Atıflar</h4>
         <ul id="historyList" style="list-style: none; padding-left: 0;"></ul>
     </div>
+
+    <script src="popup.js"></script>
 </body>
 
 </html>

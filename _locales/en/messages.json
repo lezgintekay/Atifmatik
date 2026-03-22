@@ -1,0 +1,42 @@
+{
+    "extName": {
+        "message": "Atifmatik"
+    },
+    "extDescription": {
+        "message": "Finds DOI and copies citations instantly."
+    },
+    "copyBtn": {
+        "message": "Copy Citation"
+    },
+    "doiSearching": {
+        "message": "Searching for DOI..."
+    },
+    "doiNotFound": {
+        "message": "DOI not found!"
+    },
+    "copySuccess": {
+        "message": "Copied! (You can use CTRL+V)"
+    },
+    "historyHeader": {
+        "message": "Recent Citations"
+    },
+    "historyCopied": {
+        "message": "Past citation copied!"
+    },
+    "styleLabel": {
+        "message": "Citation Style:"
+    },
+    "noTitle": { 
+        "message": 
+        "No title found" 
+    }, 
+    "fetchingFormat": {
+        "message": 
+        " format fetching..."
+},
+    "errorFetching" : {
+        "message": 
+        "Error: Citation could not be fetched."
+}
+
+} 
